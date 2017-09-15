@@ -31,8 +31,11 @@ public class Showall extends HttpServlet {
 		Connection con= DriverManager.getConnection(url, usrname, pass);
 		PreparedStatement st= con.prepareStatement(sql2);
 		ResultSet rs= st.executeQuery();
+		out.print("<html>");
+		out.print("<body bgcolor= rgb(160,120,150)>");
+		out.print("<center>");
 		out.print("<table width=50% border=1>");  
-		out.print("<caption>Upcoming Events</caption>");
+		out.print("<caption><h1>Upcoming Events</h1></caption>");
 		ResultSetMetaData col= rs.getMetaData();
 		int t= col.getColumnCount();
 		out.print("</tr>"); 
@@ -44,7 +47,10 @@ public class Showall extends HttpServlet {
 		{  
 		out.print("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getDate(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getInt(4)+"</td><td>"+rs.getString(5)+"</td></tr>");  
 		}
-		out.print("</table>"); 
+		out.print("</table>");
+		out.print("</center>");
+		out.print("</body>");
+		out.print("</html>");
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
