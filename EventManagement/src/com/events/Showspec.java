@@ -34,8 +34,11 @@ public class Showspec extends HttpServlet {
 		st.setString(2, ser);
 		st.setString(3, ser);
 		ResultSet rs= st.executeQuery();
-		out.print("<table width=50% border=1>");  
-		out.print("<caption>Upcoming Events</caption>");
+		out.print("<html>");
+		out.print("<body bgcolor= rgb(160,120,150)>");
+		out.print("<center>");
+		out.print("<table width=50% border=1>"); 
+		out.print("<caption><h1>Your result</h1></caption>");
 		ResultSetMetaData col= rs.getMetaData();
 		int t= col.getColumnCount();
 		out.print("</tr>"); 
@@ -47,7 +50,10 @@ public class Showspec extends HttpServlet {
 		{  
 		out.print("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getDate(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getInt(4)+"</td><td>"+rs.getString(5)+"</td></tr>");  
 		}
-		out.print("</table>"); 
+		out.print("</table>");
+		out.print("</center>");
+		out.print("</body>");
+		out.print("</html>"); 
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
